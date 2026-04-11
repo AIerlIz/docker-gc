@@ -19,8 +19,9 @@ jobs:
       
       - name: Run tests
         run: |
-          chmod +x tests/*.sh
-          ./tests/run-tests.sh
+          mkdir -p /tmp
+          PID_DIR=/tmp chmod +x tests/*.sh
+          PID_DIR=/tmp ./tests/run-tests.sh
 
   build-and-push:
     needs: test
